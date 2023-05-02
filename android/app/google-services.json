@@ -1,0 +1,47 @@
+{
+  "project_info": {
+    "project_number": "479876004073",
+    "project_id": "elgi-app",
+    "storage_bucket": "elgi-app.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:479876004073:android:25cd91810b2af84d24d878",
+        "android_client_info": {
+          "package_name": "com.elgi_app.elgi_app"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "479876004073-mi5p7fgdk4lko115r0l2j6bq42khbeou.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.elgi_app.elgi_app",
+            "certificate_hash": "10f66db32439375bac60ec893a566130be78f4dd"
+          }
+        },
+        {
+          "client_id": "479876004073-4bmhfgruiuu2p8opn4glcq37b50pa94s.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBsnigm1c4ncX6tDoN0UdPmorFsDdyckXg"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "479876004073-4bmhfgruiuu2p8opn4glcq37b50pa94s.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
