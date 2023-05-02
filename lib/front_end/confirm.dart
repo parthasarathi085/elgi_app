@@ -2,6 +2,8 @@ import 'package:flutter/material.dart';
 import 'package:fluttertoast/fluttertoast.dart';
 import 'package:intl/intl.dart';
 
+import '../back_end/send_email_from_the_app.dart';
+
 Widget Visit_page(BuildContext context) {
   late String tov;
   late String visitout;
@@ -130,7 +132,7 @@ Widget Visit_page(BuildContext context) {
           ),*/
           SizedBox(height: 20,),
           InkWell(
-            onTap: () {},
+            onTap: () => send_email() ,
             child: Container(
               height: 40,
               width: 150,

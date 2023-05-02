@@ -1,8 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:intl/intl.dart';
 
-
-
 Widget Sales_details(BuildContext context) {
 
   late String industype ;
