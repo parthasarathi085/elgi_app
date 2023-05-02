@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:fluttertoast/fluttertoast.dart';
 import 'package:intl/intl.dart';
+import 'package:mailer/smtp_server.dart';
+import 'package:mailer/mailer.dart';
 
 import '../back_end/send_email_from_the_app.dart';
 
@@ -14,6 +16,46 @@ Widget Visit_page(BuildContext context) {
   final tovController = TextEditingController();
   final visitoutController = TextEditingController();
   //final sendmailController = TextEditingController();
+
+
+  void show_snacker_bar(String text) {
+    final snackBar = SnackBar(
+      content: Text(
+        text,
+        style: TextStyle(fontSize: 20),
+      ),
+      backgroundColor: Colors.green,
+    );
+
+    ScaffoldMessenger.of(context)
+      ..removeCurrentSnackBar()
+      ..showSnackBar(snackBar) ;
+  }
+
+  Future send_email() async {
+    final user = await GoogleAuthApi.sign_in() ;
+
+    if (user == null) return ;
+
+    final email = user.email ;
+    final auth = await user.authentication ;
+    final token = auth.accessToken ;
+
+    final smtpServer = gmailSaslXoauth2(email , token!) ;
+    final message = Message()
+      ..from = Address(email , "yukta2k23@gmail.com")
+      ..recipients = ['sarathipartha085@gmail.com']
+      ..subject = 'Rating demo'
+      ..text = 'hi';
+
+    try{
+      await send(message, smtpServer) ;
+      show_snacker_bar('Sent email Successfully!!!') ;
+    } on MailerException catch (e) {
+      show_snacker_bar('oops!!! error occurred while processing your request...\n$e') ;
+      print(e) ;
+    }
+  }
 
   @override
   void dispose() {
