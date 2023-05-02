@@ -59,7 +59,7 @@ class _test_01State extends State<test_01> {
       ..text = 'hi';
 
     try{
-      await send(message, token as SmtpServer) ;
+      await send(message, smtpServer) ;
       show_snacker_bar('Sent email Successfully!!!') ;
     } on MailerException catch (e) {
       print(e) ;
