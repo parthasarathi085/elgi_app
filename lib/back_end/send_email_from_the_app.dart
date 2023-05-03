@@ -17,18 +17,3 @@ class GoogleAuthApi {
 
   static Future sign_out() => google_sign_in_.signOut() ;
 }
-
-class send_email_from_the_app extends StatefulWidget {
-  const send_email_from_the_app({Key? key}) : super(key: key);
-
-  @override
-  State<send_email_from_the_app> createState() => _send_email_from_the_appState();
-}
-
-class _send_email_from_the_appState extends State<send_email_from_the_app> {
-
-  @override
-  Widget build(BuildContext context) {
-    return const Placeholder();
-  }
-}

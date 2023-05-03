@@ -1,5 +1,11 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="com.elgi_app.elgi_app">
+
+    <uses-feature
+        android:name="android.hardware.telephony"
+        android:required="false" />
+    <uses-permission android:name="android.permission.SEND_SMS"/>
+
    <application
         android:label="elgi_app"
         android:name="${applicationName}"

@@ -174,7 +174,9 @@ Widget Visit_page(BuildContext context) {
           ),*/
           SizedBox(height: 20,),
           InkWell(
-            onTap: () => send_email() ,
+            onTap: () async {
+		send_email() ;
+		} ,
             child: Container(
               height: 40,
               width: 150,
