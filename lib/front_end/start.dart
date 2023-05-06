@@ -1,3 +1,5 @@
+// ignore_for_file: camel_case_types, non_constant_identifier_names
+
 import 'package:flutter/material.dart';
 
 import 'consumer_details.dart';
@@ -36,7 +38,7 @@ class _startState extends State<start> {
     Step(
         title: visited[2] == 0 ? Text("") : Text('visit'),
         isActive: completed >= 3,
-        content: Center(
+        content: const Center(
           child: Text('Confirm'),
         )
     ),

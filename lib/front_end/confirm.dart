@@ -1,10 +1,9 @@
 import 'package:flutter/material.dart';
-import 'package:fluttertoast/fluttertoast.dart';
-import 'package:intl/intl.dart';
 import 'package:mailer/smtp_server.dart';
 import 'package:mailer/mailer.dart';
-
 import '../back_end/send_email_from_the_app.dart';
+import '../back_end/send_sms_from_the_app.dart';
+
 
 Widget Visit_page(BuildContext context) {
   late String tov;
@@ -33,6 +32,7 @@ Widget Visit_page(BuildContext context) {
   }
 
   Future send_email() async {
+
     final user = await GoogleAuthApi.sign_in() ;
 
     if (user == null) return ;
@@ -130,53 +130,36 @@ Widget Visit_page(BuildContext context) {
             ),
 
           ),
-
-          /*TextFormField(
-            controller: tovController,
-            decoration: InputDecoration(
-                icon: Icon(Icons.add_business_outlined , color: Colors.black,),
-                hintText: 'Type of Visit',
-                labelText: 'Type of Visit',
-                hintStyle: TextStyle(
-                  color: Colors.grey ,
-                  fontWeight: FontWeight.bold ,
-                ),
-                alignLabelWithHint: true,
-                enabledBorder: OutlineInputBorder(
-                    borderRadius: BorderRadius.circular(20)
-                )
-            ),
-            onChanged: (val) => tov = val,
-            autovalidateMode: AutovalidateMode.onUserInteraction,
-            validator: (tov) => tov != null && tov.length < 3 && tov.length > 0 ? 'Enter atleast 3 characters ...': null ,
-            textInputAction: TextInputAction.next,
-          ),
-          const SizedBox(height : 20) ,
-          TextFormField(
-            controller: visitoutController,
-            decoration: InputDecoration(
-                icon: Icon(Icons.add_business_rounded, color: Colors.black,),
-                hintText: 'Visit Outcome',
-                labelText: 'Visit Outcome',
-                hintStyle: TextStyle(
-                  color: Colors.grey ,
-                  fontWeight: FontWeight.bold ,
-                ),
-                alignLabelWithHint: true,
-                enabledBorder: OutlineInputBorder(
-                    borderRadius: BorderRadius.circular(20)
-                )
-            ),
-            onChanged: (val) => visitout = val,
-            autovalidateMode: AutovalidateMode.onUserInteraction,
-            validator: (visitout) =>visitout != null && visitout.length < 3 && visitout.length > 0 ? 'Enter atleast 3 characters ...': null ,
-            textInputAction: TextInputAction.next,
-          ),*/
           SizedBox(height: 20,),
           InkWell(
             onTap: () async {
-		send_email() ;
-		} ,
+              send_sms_from_the_app().check();
+            } ,
+            child: Container(
+              height: 40,
+              width: 150,
+              decoration: BoxDecoration(
+                  color: Colors.blue,
+                  borderRadius: BorderRadius.circular(15)
+              ),
+              child: Center(
+                child: Text(
+                  "Send Sms",
+                  style: TextStyle(
+                      color: Colors.white,
+                      fontSize: 20,
+                      fontWeight: FontWeight.bold
+                  ),
+                ),
+              ),
+            ),
+          ),
+
+          SizedBox(height: 20,),
+          InkWell(
+            onTap: () async {
+              send_email() ;
+              } ,
             child: Container(
               height: 40,
               width: 150,
